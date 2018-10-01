@@ -15,6 +15,14 @@ constructor(props){
   };
 }
 
+deleteTodo(todo) {
+   todo.preventDefault();
+   const newTodos = this.state.todos.filter(item => console.log(item));
+   console.log(todo.target)
+   this.setState({ todos: newTodos});
+   console.log('firing')
+ }
+
 handleChange(e) {
   this.setState({ newTodoDescription: e.target.value })
 }
