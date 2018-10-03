@@ -7,7 +7,7 @@ constructor(props){
   super(props);
   this.state = {
     todos: [
-      { description: 'Walk the cat', isCompleted: true },
+         { description: 'Walk the cat', isCompleted: true },
          { description: 'Throw the dishes away', isCompleted: false },
          { description: 'Buy new dishes', isCompleted: false }
        ],
@@ -45,12 +45,13 @@ toggleComplete(index) {
     return (
       <div className="App">
       <ul>
-{ this.state.todos.map( (todo,index) =>
-  <ToDo key={ index } description={ todo.description } isCompleted={ todo.isCompleted } toggleComplete={ () => this.toggleComplete(index) } />
+      { this.state.todos.map( (todo,index) =>
+        <ToDo key={ index } description={ todo.description } isCompleted={ todo.isCompleted } deleteTodo={ (e) => this.deleteTodo(e)}/>
+
 )}
-</ul>
-<form onSubmit={ (e) => this.handleSubmit(e) }>
-<input type="text" value={ this.state.newTodoDescription } onChange={ (e) => this.handleChange(e) } />
+      </ul>
+      <form onSubmit={ (e) => this.handleSubmit(e) }>
+      <input type="text" value={ this.state.newTodoDescription } onChange={ (e) => this.handleChange(e) } />
            <input type="submit" />
          </form>
       </div>
